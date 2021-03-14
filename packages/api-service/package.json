@@ -1,0 +1,18 @@
+{
+  "name": "api-service",
+  "version": "0.1.0",
+  "description": "",
+  "author": "ok2ju <soulSpringg@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "keycloak-connect": "^12.0.4"
+  }
+}

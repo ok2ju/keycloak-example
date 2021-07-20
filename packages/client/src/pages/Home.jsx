@@ -1,19 +1,20 @@
-import React from 'react'
-import { useKeycloak } from '@react-keycloak/web'
+import React, { useEffect } from 'react'
+import { dataApi } from '../api/data'
+import AuthService from '../services/AuthService'
 
 const Home = () => {
-  const { keycloak = {} } = useKeycloak()
+  useEffect(() => {
+    dataApi.getProtectedData()
+  }, [])
 
   const handleLogout = () => {
-    keycloak.logout()
+    AuthService.logout()
   }
 
   return (
     <div>
-      <h1>User is {!keycloak.authenticated ? 'not' : ''} authenticated</h1>
-      {keycloak.authenticated && (
-        <button onClick={handleLogout}>Logout</button>
-      )}
+      <h1>Hello, {AuthService.getUsername()}</h1>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   )
 }
